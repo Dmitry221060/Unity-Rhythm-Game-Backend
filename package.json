@@ -1,7 +1,7 @@
 {
   "name": "unity-rhythm-game-backend",
-  "version": "1.0.1",
-  "description": "Backend for my Unity rhytm game",
+  "version": "1.0.0",
+  "description": "Backend for my Unity rhythm game",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -20,9 +20,9 @@
   "author": "Dmitry221060 <ya.dima42103ya@yandex.ru>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Byndyusoft/unity-rhythm-game-backend/issues"
+    "url": "https://github.com/Dmitry221060/unity-rhythm-game-backend/issues"
   },
-  "homepage": "https://github.com/Byndyusoft/unity-rhythm-game-backend#readme",
+  "homepage": "https://github.com/Dmitry221060/unity-rhythm-game-backend#readme",
   "scripts": {
     "build": "tsc",
     "start": "node .",
@@ -53,8 +53,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "contributors": [
-    "Dmitry221060 <ya.dima42103ya@yandex.ru>"
-  ]
+  }
 }
