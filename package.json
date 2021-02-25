@@ -1,0 +1,60 @@
+{
+  "name": "unity-rhythm-game-backend",
+  "version": "1.0.1",
+  "description": "Backend for my Unity rhytm game",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dmitry221060/unity-rhythm-game-backend.git"
+  },
+  "keywords": [
+    "fun",
+    "Unity",
+    "game",
+    "TypeScript"
+  ],
+  "author": "Dmitry221060 <ya.dima42103ya@yandex.ru>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Byndyusoft/unity-rhythm-game-backend/issues"
+  },
+  "homepage": "https://github.com/Byndyusoft/unity-rhythm-game-backend#readme",
+  "scripts": {
+    "build": "tsc",
+    "start": "node .",
+    "clean": "rimraf dist",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix",
+    "prepublishOnly": "npm run build",
+    "test": "npm run lint"
+  },
+  "devDependencies": {
+    "@byndyusoft/eslint-config": "^0.4.0",
+    "@types/express": "^4.17.11",
+    "@types/mongodb": "^3.6.8",
+    "@types/node": "^14.14.31",
+    "eslint": "^7.20.0",
+    "rimraf": "^3.0.2",
+    "typescript": "~4.1.2"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^4.4.1",
+    "mongodb": "^3.6.3",
+    "winston": "^3.3.3"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "contributors": [
+    "Dmitry221060 <ya.dima42103ya@yandex.ru>"
+  ]
+}
