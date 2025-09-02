@@ -1,10 +1,6 @@
 {
   "compilerOptions": {
-      "target": "es2018",
-      "lib": [
-          "es2020",
-          "dom"
-      ],
+      "target": "es2022",
       "rootDir": "./src",
       "noUnusedLocals": true,
       "noUnusedParameters": true,
@@ -13,9 +9,11 @@
       "noImplicitAny": true,
       "noImplicitThis": true,
       "esModuleInterop": true,
-      "moduleResolution": "node",
-      "module": "commonjs",
+      "moduleResolution": "nodenext",
+      "module": "nodenext",
       "outDir": "./dist",
+      "baseUrl": "./",
+      "sourceMap": true,
       "resolveJsonModule": true,
       "strict": true,
       "allowJs": true
