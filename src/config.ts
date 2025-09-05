@@ -23,12 +23,12 @@ const config = {
 
   levels: [
     {
-      name: "Butterfly",
-      maxScore: 5400,
-    },
-    {
       name: "Test",
       maxScore: 99999,
+    },
+    {
+      name: "Butterfly",
+      maxScore: 5400,
     },
   ],
 };

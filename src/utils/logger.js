@@ -5,7 +5,7 @@ const path = require("path");
 const fs = require("fs");
 const { formatTimestamp } = require("./util");
 
-const LOG_TO_CONSOLE = process.env.LOG_TO_CONSOLE ?? false;
+const LOG_TO_CONSOLE = process.env.LOG_TO_CONSOLE === true;
 const { combine, colorize, printf } = winston.format;
 
 const leveling = winston.format((info, level) => info.level !== level ? null : info);
