@@ -2,6 +2,7 @@ import { Body, Controller, Ip, Put } from "@nestjs/common";
 import { ApiOperation } from "@nestjs/swagger";
 import { ScoreService } from "./score.service";
 import { CreatePlayerScoreDto } from "./dto/create-score.dto";
+import { PublicPlayerScoreEntity } from "src/shared/entities/playerScore.entity";
 import logger from "src/utils/logger";
 
 @Controller("score")
