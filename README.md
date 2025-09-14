@@ -4,6 +4,7 @@
 - [About](#about)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
+- [Documentation](#documentation)
 
 ## About
 This project is the server part for [Unity-Rhythm-Game](https://github.com/Dmitry221060/Unity-Rhythm-Game).
@@ -24,3 +25,6 @@ Make sure you have installed all of the following prerequisites on your developm
 
 1. Clone this repository with `git clone https://github.com/Dmitry221060/Unity-Rhythm-Game-Backend.git`.
 2. Run server in the container with `docker compose up -d`
+
+## Documentation
+After you install and run the server, you can head to http://localhost:8080/api-docs for information on available endpoints and their functions.
