@@ -11,5 +11,5 @@ FROM base AS production
 RUN apk add --no-cache curl
 COPY package*.json ./
 RUN npm ci --omit=dev && npm cache clean --force
-COPY --from=build /usr/app/dist .
+COPY --from=build /usr/app/dist ./dist
 CMD ["npm", "run", "start:prod"]
