@@ -17,6 +17,10 @@ Make sure you have installed all of the following prerequisites on your developm
 ## Installation
 1. Clone this repository with `git clone https://github.com/Dmitry221060/Unity-Rhythm-Game-Backend.git`.
 2. Move into cloned repository and run `npm install`.
-3. Build project via `npm run build`.
-4. Configure project by creating `.env` file based on the `.env.example`.
-5. Run server with `npm run start`.
+3. Configure project by creating `.env` file based on the `.env.example`.
+4. Run server with `npm run start`.
+
+**OR**
+
+1. Clone this repository with `git clone https://github.com/Dmitry221060/Unity-Rhythm-Game-Backend.git`.
+2. Run server in the container with `docker compose up -d`
