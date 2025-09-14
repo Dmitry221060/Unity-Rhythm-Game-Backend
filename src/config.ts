@@ -16,7 +16,7 @@ const config = {
       host: process.env.DB_HOST,
       port: parseInt(process.env.DB_PORT ?? "27017"),
       database: process.env.DB_NAME,
-      synchronize: process.env.NODE_ENV == "DEV",
+      synchronize: process.env.NODE_ENV == "dev",
       autoLoadEntities: true,
     };
   },
