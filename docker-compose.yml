@@ -2,7 +2,7 @@ services:
   server:
     build: .
     volumes:
-      - .:/usr/app
+      - server-logs:/usr/app/logs
     ports:
       - "${PORT:-8080}:${PORT:-8080}"
     environment:
@@ -10,7 +10,7 @@ services:
       PORT: "${PORT:-8080}"
       LOG_TO_CONSOLE: ${LOG_TO_CONSOLE:-false}
 
-      DB_HOST: ${DB_HOST:-127.0.0.1}
+      DB_HOST: db
       DB_PORT: ${DB_PORT:-27017}
       DB_NAME: ${DB_NAME:-unityRhythmGame}
 
@@ -18,7 +18,7 @@ services:
       db:
         condition: service_healthy
     healthcheck:
-      test: curl --fail http://localhost:3000/healthz
+      test: curl --fail http://localhost:8080/healthz
       interval: 5s
       timeout: 5s
       retries: 20
@@ -27,13 +27,17 @@ services:
   db:
     image: mongo:4.1.8-xenial
     volumes:
-      - db-data:/var/lib/mongodb/data
+      - db-data:/var/lib/mongodb
     environment:
       MONGODB_PORT_NUMBER: ${DB_PORT:-27017}
 
     healthcheck:
-      test: echo 'db.runCommand("ping").ok' | mongo mongo:${DB_PORT:-27017}/test --quiet
+      test: echo 'db.runCommand("ping").ok' | mongo --quiet "localhost/test"
       interval: 5s
       timeout: 5s
       retries: 10
     restart: always
+
+volumes:
+  server-logs:
+  db-data:
