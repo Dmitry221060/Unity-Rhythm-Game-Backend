@@ -1,7 +1,7 @@
-import "tsconfig-paths/register";
 import { ValidationPipe } from "@nestjs/common";
 import { Test } from "@nestjs/testing";
 import { NestExpressApplication } from "@nestjs/platform-express";
+import "tsconfig-paths/register";
 import config from "src/config";
 import { AppModule } from "src/app.module";
 
