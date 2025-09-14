@@ -1,8 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
-import { PlayerScoreEntity } from "src/shared/entities/playerScore.entity";
-import { deleteProperties } from "src/utils/util";
+import { PlayerScoreEntity, PublicPlayerScoreEntity } from "src/shared/entities/playerScore.entity";
 
 const leaderboardSize = 10;
 
@@ -13,15 +12,15 @@ export class LeaderboardService {
     private readonly scoreRepository: Repository<PlayerScoreEntity>,
   ) {}
 
-  async getScoresByLevel(level: string): Promise<PlayerScoreEntity[]> {
+  async getScoresByLevel(level: string): Promise<PublicPlayerScoreEntity[]> {
     const records = await this.scoreRepository.find({
       where: { level },
       order: { score: "DESC" },
       take: leaderboardSize,
       skip: 0,
     });
-    deleteProperties(records, ["_id"]);
+    const publicRecords = records.map(e => new PublicPlayerScoreEntity(e));
 
-    return records;
+    return publicRecords;
   }
 }

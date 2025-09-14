@@ -3,7 +3,7 @@ import { INestApplication } from "@nestjs/common";
 import { Server } from "http";
 import { DataSource, Repository } from "typeorm";
 import config from "src/config";
-import { PlayerScoreEntity } from "src/shared/entities/playerScore.entity";
+import { PlayerScoreEntity, PublicPlayerScoreEntity } from "src/shared/entities/playerScore.entity";
 import { createApp } from "../utils/create-app";
 
 describe("Score", () => {
