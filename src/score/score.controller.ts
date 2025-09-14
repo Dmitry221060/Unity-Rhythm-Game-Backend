@@ -1,4 +1,5 @@
 import { Body, Controller, Ip, Put } from "@nestjs/common";
+import { ApiOperation } from "@nestjs/swagger";
 import { ScoreService } from "./score.service";
 import { CreatePlayerScoreDto } from "./dto/create-score.dto";
 import logger from "src/utils/logger";
