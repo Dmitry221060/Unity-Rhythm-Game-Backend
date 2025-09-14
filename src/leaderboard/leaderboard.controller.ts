@@ -1,8 +1,8 @@
 import { Get, Query, Controller } from "@nestjs/common";
 import { ApiOperation } from "@nestjs/swagger";
+import logger from "src/utils/logger";
 import { LeaderboardService } from "./leaderboard.service";
 import { LeaderboardResponseDto } from "./dto/get-level-scores.dto";
-import logger from "src/utils/logger";
 
 @Controller("leaderboard")
 export class LeaderboardController {

@@ -1,7 +1,10 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
-import { PlayerScoreEntity, PublicPlayerScoreEntity } from "src/shared/entities/playerScore.entity";
+import {
+  PlayerScoreEntity,
+  PublicPlayerScoreEntity,
+} from "src/shared/entities/playerScore.entity";
 
 const leaderboardSize = 10;
 
@@ -19,7 +22,7 @@ export class LeaderboardService {
       take: leaderboardSize,
       skip: 0,
     });
-    const publicRecords = records.map(e => new PublicPlayerScoreEntity(e));
+    const publicRecords = records.map((e) => new PublicPlayerScoreEntity(e));
 
     return publicRecords;
   }

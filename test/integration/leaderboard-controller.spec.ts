@@ -1,9 +1,12 @@
-import request from "supertest";
 import { INestApplication } from "@nestjs/common";
 import { Server } from "http";
+import request from "supertest";
 import { DataSource } from "typeorm";
 import config from "src/config";
-import { PlayerScoreEntity, PublicPlayerScoreEntity } from "src/shared/entities/playerScore.entity";
+import {
+  PlayerScoreEntity,
+  PublicPlayerScoreEntity,
+} from "src/shared/entities/playerScore.entity";
 import { deleteProperties } from "src/utils/util";
 import { createApp } from "../utils/create-app";
 
