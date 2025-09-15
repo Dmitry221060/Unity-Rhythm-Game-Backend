@@ -1,5 +1,6 @@
 import eslint from "@eslint/js";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
+import importPlugin from "eslint-plugin-import";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 
@@ -12,6 +13,9 @@ export default [
     ...tseslint.configs.recommendedTypeChecked,
     eslintPluginPrettierRecommended,
     {
+      plugins: {
+        import: importPlugin,
+      },
       languageOptions: {
         globals: {
           ...globals.node,
@@ -46,15 +50,51 @@ export default [
         ],
 
         "object-shorthand": ["warn", "properties"],
+        "import/order": [
+          "error",
+          {
+            groups: [
+              "builtin",
+              "external",
+              "internal",
+              "type",
+              "parent",
+              "sibling",
+              "object",
+              "index",
+            ],
+            pathGroups: [
+              {
+                pattern: "@nestjs/**",
+                group: "builtin",
+                position: "before",
+              },
+              {
+                pattern: "**/interfaces/**",
+                group: "type",
+                position: "before",
+              },
+              {
+                pattern: "src/**",
+                group: "parent",
+                position: "before",
+              },
+              {
+                pattern: "./*",
+                group: "sibling",
+                position: "before",
+              },
+            ],
+            distinctGroup: true,
+            warnOnUnassignedImports: true,
+            pathGroupsExcludedImportTypes: ["@nestjs/**"],
+          },
+        ],
       },
     },
   ),
   {
-    files: [
-      "**/*.spec.ts",
-      "**/test/integration/**",
-      "**/test/utils/**",
-    ],
+    files: ["**/*.spec.ts", "**/test/integration/**", "**/test/utils/**"],
     rules: {
       "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/no-unsafe-assignment": "off",

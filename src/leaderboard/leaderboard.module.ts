@@ -1,8 +1,8 @@
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
+import { PlayerScoreEntity } from "src/shared/entities/playerScore.entity";
 import { LeaderboardController } from "./leaderboard.controller";
 import { LeaderboardService } from "./leaderboard.service";
-import { PlayerScoreEntity } from "src/shared/entities/playerScore.entity";
 
 @Module({
   imports: [TypeOrmModule.forFeature([PlayerScoreEntity])],

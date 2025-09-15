@@ -1,0 +1,43 @@
+services:
+  server:
+    build: .
+    volumes:
+      - server-logs:/usr/app/logs
+    ports:
+      - "${PORT:-8080}:${PORT:-8080}"
+    environment:
+      NODE_ENV: ${NODE_ENV:-dev}
+      PORT: "${PORT:-8080}"
+      LOG_TO_CONSOLE: ${LOG_TO_CONSOLE:-false}
+
+      DB_HOST: db
+      DB_PORT: ${DB_PORT:-27017}
+      DB_NAME: ${DB_NAME:-unityRhythmGame}
+
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: curl --fail http://localhost:8080/healthz
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+
+  db:
+    image: mongo:4.1.8-xenial
+    volumes:
+      - db-data:/var/lib/mongodb
+    environment:
+      MONGODB_PORT_NUMBER: ${DB_PORT:-27017}
+
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongo --quiet "localhost/test"
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: always
+
+volumes:
+  server-logs:
+  db-data:

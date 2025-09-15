@@ -1,5 +1,5 @@
-import { PlayerScoreEntity } from "src/shared/entities/playerScore.entity";
+import { PublicPlayerScoreEntity } from "src/shared/entities/playerScore.entity";
 
 export class LeaderboardResponseDto {
-  records!: PlayerScoreEntity[];
+  records!: PublicPlayerScoreEntity[];
 }
